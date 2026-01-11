@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api", // 👈 adjust if needed
+  baseURL: "https://admin-backend-lle2.onrender.com", // 👈 adjust if needed
 });
 
 // attach token automatically
