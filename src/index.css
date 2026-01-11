@@ -1,0 +1,104 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* App background and modern glass styles */
+.app-bg {
+  background: radial-gradient(circle at 12% 14%, rgba(124,58,237,0.10), transparent 10%),
+              radial-gradient(circle at 88% 86%, rgba(14,165,233,0.06), transparent 8%),
+              linear-gradient(180deg,#071026 0%, #01040a 100%);
+  background-attachment: fixed;
+  color: #e6eef8;
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+}
+
+.stat-accent {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg,#7c3aed,#06b6d4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(7,12,30,0.6);
+  color: white;
+  font-weight: 600;
+}
+
+/* Particles animation */
+.particle {
+  transform-origin: center;
+  animation: float 9s ease-in-out infinite;
+}
+.particle.p2 { animation-duration: 11s; transform-box: fill-box; }
+.particle.p3 { animation-duration: 7s; }
+.particle.p4 { animation-duration: 13s; }
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-10px) translateX(6px) scale(1.03); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
+}
+
+/* Glass card micro-interactions */
+.glass-card {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.glass-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(2,6,23,0.6);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* Topbar specific tweaks */
+.glass-card.rounded-b-xl { backdrop-filter: blur(6px); }
+.toggle {
+  width: 42px;
+  height: 22px;
+  appearance: none;
+  background: #1f2937;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle:checked {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+}
+
+.toggle::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+}
+
+.toggle:checked::before {
+  transform: translateX(20px);
+}
